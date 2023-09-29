@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <header class="container-fluid text-white text-center p-3">
+        <h1 class="fw-bold">Weather Dashboard</h1>
+    </header>
+
+    <section class="row">
+        <form class="col-3 m-1">
+            <h2 class="m-1">Search for a City:</h2>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="city-input">
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+            <hr>
+
+        </form>
+        <section class="col-8 border border-black p-1 m-3">
+            <h2>City Name (Date) Icon</h2>
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+        </section>
+    </section>
+
+    <section class="row">
+        <ul class="col-3 m-1">
+            <li>test</li>
+        </ul>
+        <section class="col-8 m-1">
+            <h3>5-Day Forecast:</h3>
+            <div class="row">
+                <section class="col-2">Day1</section>
+                <section class="col-2">Day2</section>
+                <section class="col-2">Day3</section>
+                <section class="col-2">Day4</section>
+                <section class="col-2">Day5</section>
+            </div>
+        </section>
+    </section>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
