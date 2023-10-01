@@ -1,5 +1,6 @@
 var initialForm = document.getElementById("initial-form");
 
+// redirects to dashboard using input provided by user
 initialForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -9,6 +10,7 @@ initialForm.addEventListener("submit", function (event) {
     location.assign(url);
 });
 
+// same function as in weather.js
 function displayHistory() {
     var cities = JSON.parse(localStorage.getItem("cities")) || [];
     for (var i = 0; i < cities.length; i++) {
