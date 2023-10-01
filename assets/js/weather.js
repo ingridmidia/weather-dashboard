@@ -40,7 +40,6 @@ function searchCityWeather() {// TODO: add throw and catch
                     return response.json();
                 })
                 .then(function (data) {
-                    console.log(data);
                     // increments in 8 because api returns forecast for every 3 hours
                     for (var i = 0; i < data.list.length; i += 8) {
                         var futureDay = data.list[i];
@@ -92,3 +91,14 @@ function renderForecastBoxes(futureDay) {
     forecastBox.appendChild(wind);
     forecastBox.appendChild(humidity);
 }
+
+var searchForm = document.getElementById("search-form");
+
+searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    var cityInput = document.getElementById("city-input").value;
+
+    var url = "./dashboard.html?q=" + cityInput;
+    location.assign(url);
+});
