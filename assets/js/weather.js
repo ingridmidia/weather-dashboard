@@ -18,7 +18,9 @@ function searchCityWeather() {// TODO: add throw and catch
                 })
                 .then(function (data) {
                     var cityInfo = document.getElementById("city-info");
-                    cityInfo.textContent = data.name + " (" + formatedDate(new Date()) + ")";
+                    var normalDate = new Date(data.dt * 1000);
+                    var date = formatedDate(normalDate);
+                    cityInfo.textContent = data.name + " (" + date + ")";
 
                     var icon = data.weather[0].icon;
                     var weatherIconUrl = "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -38,6 +40,7 @@ function searchCityWeather() {// TODO: add throw and catch
                     return response.json();
                 })
                 .then(function (data) {
+                    console.log(data);
                     // increments in 8 because api returns forecast for every 3 hours
                     for (var i = 0; i < data.list.length; i += 8) {
                         var futureDay = data.list[i];
