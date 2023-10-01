@@ -1,4 +1,4 @@
-function searchCityWeather() {// TODO: add throw and catch
+function searchCityWeather() {
 
     var city = document.location.search.split("=")[1];
 
@@ -27,7 +27,7 @@ function searchCityWeather() {// TODO: add throw and catch
                     var normalDate = new Date(data.dt * 1000);
                     var date = formatedDate(normalDate);
                     cityInfo.textContent = data.name + " (" + date + ")";
-                   
+
                     addToSearchHistory(data.name);
 
                     var icon = data.weather[0].icon;
@@ -60,7 +60,7 @@ function searchCityWeather() {// TODO: add throw and catch
         })
         .catch(function () {
             displayHistory();
-            alert("City not found");
+            alert("Sorry, could not retrieve weather information");
         });
 }
 
@@ -120,7 +120,11 @@ searchForm.addEventListener("submit", function (event) {
 
 function addToSearchHistory(city) {
     var cities = JSON.parse(localStorage.getItem("cities")) || [];
-    cities.push(city);
+
+    if (!cities.includes(city)) {
+        cities.push(city);
+    }
+
     localStorage.setItem("cities", JSON.stringify(cities));
     displayHistory();
 }
