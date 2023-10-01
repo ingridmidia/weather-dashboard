@@ -1,6 +1,6 @@
 function searchCityWeather() {// TODO: add throw and catch
 
-    var city = localStorage.getItem("city");
+    var city = document.location.search.split("=")[1];
 
     var geocodingApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=8db3ecd3755c3cb6724d4b46e2a83323";
 

@@ -4,7 +4,7 @@ initialForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
     var cityInput = document.getElementById("city-input").value;
-    localStorage.setItem("city", cityInput);
-    
-    window.location.href = "./dashboard.html";
+
+    var url = "./dashboard.html?q=" + cityInput;
+    location.assign(url);
 });
