@@ -2,7 +2,7 @@ function searchCityWeather() {
 
     var city = document.location.search.split("=")[1];
 
-    var geocodingApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=8db3ecd3755c3cb6724d4b46e2a83323";
+    var geocodingApiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=8db3ecd3755c3cb6724d4b46e2a83323";
 
     fetch(geocodingApiUrl)
         .then(function (response) {
