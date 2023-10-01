@@ -6,6 +6,9 @@ function searchCityWeather() {// TODO: add throw and catch
 
     fetch(geocodingApiUrl)
         .then(function (response) {
+            if (!response.ok) {
+                throw response.json();
+            }
             return response.json();
         })
         .then(function (data) {
@@ -14,6 +17,9 @@ function searchCityWeather() {// TODO: add throw and catch
             var currentDayWeatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=8db3ecd3755c3cb6724d4b46e2a83323";
             fetch(currentDayWeatherApiUrl)
                 .then(function (response) {
+                    if (!response.ok) {
+                        throw response.json();
+                    }
                     return response.json();
                 })
                 .then(function (data) {
@@ -21,6 +27,8 @@ function searchCityWeather() {// TODO: add throw and catch
                     var normalDate = new Date(data.dt * 1000);
                     var date = formatedDate(normalDate);
                     cityInfo.textContent = data.name + " (" + date + ")";
+                   
+                    addToSearchHistory(data.name);
 
                     var icon = data.weather[0].icon;
                     var weatherIconUrl = "https://openweathermap.org/img/wn/" + icon + ".png";
@@ -37,6 +45,9 @@ function searchCityWeather() {// TODO: add throw and catch
             var fiveDaysWeatherApiUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=8db3ecd3755c3cb6724d4b46e2a83323";
             fetch(fiveDaysWeatherApiUrl)
                 .then(function (response) {
+                    if (!response.ok) {
+                        throw response.json();
+                    }
                     return response.json();
                 })
                 .then(function (data) {
@@ -46,6 +57,10 @@ function searchCityWeather() {// TODO: add throw and catch
                         renderForecastBoxes(futureDay);
                     }
                 })
+        })
+        .catch(function () {
+            displayHistory();
+            alert("City not found");
         });
 }
 
@@ -101,14 +116,13 @@ searchForm.addEventListener("submit", function (event) {
 
     var url = "./dashboard.html?q=" + cityInput;
     location.assign(url);
-
-    searchHistory(cityInput);
 });
 
-function searchHistory(city) {
+function addToSearchHistory(city) {
     var cities = JSON.parse(localStorage.getItem("cities")) || [];
     cities.push(city);
     localStorage.setItem("cities", JSON.stringify(cities));
+    displayHistory();
 }
 
 function displayHistory() {
@@ -129,4 +143,3 @@ function displayHistory() {
     }
 }
 
-displayHistory();
