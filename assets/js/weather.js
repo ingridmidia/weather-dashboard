@@ -103,7 +103,8 @@ function renderForecastBoxes(futureDay) {
     humidity.textContent = "Humidity: " + futureDay.main.humidity + "%";
 
     forecastBoxes.appendChild(forecastBox);
-    forecastBox.classList.add("col-2");
+    forecastBox.classList.add("col-lg-2");
+    forecastBox.classList.add("col-sm-12");
     forecastBox.classList.add("m-2");
     forecastBox.classList.add("forecast-box");
     date.classList.add("fw-bold");
