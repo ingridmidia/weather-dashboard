@@ -15,35 +15,38 @@
         <h1 class="fw-bold">Weather Dashboard</h1>
     </header>
 
-    <section class="row">
-        <form class="col-3 m-1" id="search-form">
-            <h2 class="m-1">Search for a City:</h2>
-            <div class="mb-3">
-                <input type="text" class="form-control" id="city-input">
-            </div>
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Search</button>
-            </div>
-            <hr>
-
-        </form>
-        <section class="col-8 border border-black p-1 m-3">
-            <h2 id="city-info"></h2>
-            <img id="today-icon" src="" alt="Weather Icon">
-            <p id="today-temp">Temp:</p>
-            <p id="today-wind">Wind:</p>
-            <p id="today-humidity">Humidity:</p>
+    <section class="container-fluid">
+        <section class="row">
+            <section class="col-lg-3 col-sm-12 m-1">
+                <form id="search-form">
+                    <h2 class="m-1">Search for a City:</h2>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="city-input">
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-dark">Search</button>
+                    </div>
+                    <hr>
+                </form>
+                <section id="search-history"></section>
+            </section>
+            <section class="col-lg-8 col-sm-12">
+                <section class="p-3 m-3" id="current-day-container">
+                    <h2 id="city-info"></h2>
+                    <img id="today-icon" src="" alt="Weather Icon">
+                    <p id="today-temp">Temp:</p>
+                    <p id="today-wind">Wind:</p>
+                    <p id="today-humidity">Humidity:</p>
+                </section>
+                <section class="m-3">
+                    <h3>5-Day Forecast:</h3>
+                    <div class="row" id="forecast-boxes">
+                    </div>
+                </section>
+            </section>
         </section>
     </section>
 
-    <section class="row">
-        <section class="col-3 m-1" id="search-history"></section>
-        <section class="col-8 m-1">
-            <h3>5-Day Forecast:</h3>
-            <div class="row" id="forecast-boxes">
-            </div>
-        </section>
-    </section>
     <script src="./assets/js/weather.js"></script>
 </body>
 

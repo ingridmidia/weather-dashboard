@@ -1,5 +1,5 @@
 header{
-    background-image: linear-gradient(to right, rgb(76, 76, 179) , rgb(78, 21, 122));
+    background-color: rgb(139, 76, 198);
 }
 
 hr{
@@ -8,5 +8,9 @@ hr{
 }
 
 .forecast-box {
-    background-color: rgb(202, 207, 233);
+    background-color: rgb(219, 202, 233);
+}
+
+#current-day-container {
+    border: solid rgb(139, 76, 198);
 }

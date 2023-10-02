@@ -30,7 +30,7 @@ function searchCityWeather() {
                     var cityInfo = document.getElementById("city-info");
                     var normalDate = new Date(data.dt * 1000);// https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
                     var date = formatedDate(normalDate);
-                    cityInfo.textContent = data.name + " (" + date + ")";
+                    cityInfo.textContent = data.name + " " + date;
 
                     addToSearchHistory(data.name);// save on history if city searched by user is found on API
 
@@ -104,8 +104,9 @@ function renderForecastBoxes(futureDay) {
 
     forecastBoxes.appendChild(forecastBox);
     forecastBox.classList.add("col-2");
-    forecastBox.classList.add("m-3");
+    forecastBox.classList.add("m-2");
     forecastBox.classList.add("forecast-box");
+    date.classList.add("fw-bold");
     forecastBox.appendChild(date);
     forecastBox.appendChild(iconImg);
     forecastBox.appendChild(temp);
